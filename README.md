@@ -2,6 +2,8 @@
 
 dic-commentator 医療辞書管理コメントシステム
 
+[dicomplete](https://github.com/sociocom/dicomplete)をもとに機能追加させたシステム
+
 ## コマンド一覧
 
 help が見れるコマンド: ```rye run python src/main.py --help```<br>
