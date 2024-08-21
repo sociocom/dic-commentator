@@ -1,8 +1,5 @@
-# src/train_trainer.py
-
 from transformers import Trainer, TrainingArguments
 from utils.model import load_model_and_tokenizer
-from utils.utils import load_csv_data
 from datasets import DatasetDict
 
 
@@ -63,12 +60,10 @@ class T5FineTuner:
         model_inputs["labels"] = labels["input_ids"]
         return model_inputs
 
-    def load_data(self, train_file):
+    def load_data(self, dataset: DatasetDict):
         """
         CSVファイルからデータセットをロードし、訓練データを分割して前処理を適用する
         """
-        dataset = load_csv_data(train_file)
-
         # データを訓練セットと検証セットに分割
         train_test_split = dataset.train_test_split(test_size=self.val_split)
         self.train_dataset = train_test_split["train"].map(

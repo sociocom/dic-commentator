@@ -1,8 +1,5 @@
-# src/test_trainer.py
-
 import torch
 from utils.model import load_model_and_tokenizer
-from utils.utils import load_csv_data
 import pandas as pd
 
 
@@ -70,11 +67,11 @@ class T5Tester:
 
         return sequence_confidence
 
-    def test(self, test_file):
+    def test(self, dataset, epoch):
         """
         テストデータを使って生成と信頼度計算を行う
         """
-        test_dataset = load_csv_data(test_file)
+        test_dataset = dataset
         input_texts = [example[self.input_column] for example in test_dataset]
         target_texts = [example[self.target_column] for example in test_dataset]
         generated_texts = []
@@ -98,4 +95,4 @@ class T5Tester:
                 "confidence": confidences,
             }
         )
-        df.to_csv(f"results/test_results{time_stamp}.csv", index=False)
+        df.to_csv(f"results/test_results{time_stamp}_epoch{epoch}.csv", index=False)
