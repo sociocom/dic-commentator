@@ -3,6 +3,7 @@ import os
 from utils.train_trainer import T5FineTuner
 from utils.test_trainer import T5Tester
 import torch
+import fire
 
 
 def main(
@@ -41,4 +42,4 @@ def main(
 
 
 if __name__ == "__main__":
-    main()
+    fire.Fire(main)
