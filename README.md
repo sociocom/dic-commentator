@@ -4,7 +4,7 @@ dic-commentator 医療辞書管理コメントシステム
 
 ## コマンド一覧
 
-help が見れるコマンド: rye run python src/main.py --help
+help が見れるコマンド: ```rye run python src/main.py --help```<br>
 入力すると以下の説明が見られる
 
 ```
